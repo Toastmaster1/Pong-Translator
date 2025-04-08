@@ -1,126 +1,3 @@
-def eng_to_pong():
-    translated = ""
-    print("ENTER TEXT BELOW: ")
-    message = input()
-    translated += "("
-    for letter in message:
-        if letter == "a":
-            translated += "pong"
-        elif letter == "A":
-            translated += "ponG"
-        elif letter == "b":
-            translated += "p ong"
-        elif letter == "B":
-            translated += "p onG"
-        elif letter == "c":
-            translated += "po ng"
-        elif letter == "C":
-            translated += "po nG"
-        elif letter == "d":
-            translated += "pon g"
-        elif letter == "D":
-            translated += "pon G"
-        elif letter == "e":
-            translated += "p o ng"
-        elif letter == "E":
-            translated += "p o nG"
-        elif letter == "f":
-            translated += "po n g"
-        elif letter == "F":
-            translated += "po n G"
-        elif letter == "g":
-            translated += "p on g"
-        elif letter == "G":
-            translated += "p on G"
-        elif letter == "h":
-            translated += "p o n g"
-        elif letter == "H":
-            translated += "p o n G"
-        # i to p
-        elif letter == "i":
-            translated += "Pong"
-        elif letter == "I":
-            translated += "PonG"
-        elif letter == "j":
-            translated += "P ong"
-        elif letter == "J":
-            translated += "P onG"
-        elif letter == "k":
-            translated += "Po ng"
-        elif letter == "K":
-            translated += "Po nG"
-        elif letter == "l":
-            translated += "Pon g"
-        elif letter == "L":
-            translated += "Pon G"
-        elif letter == "m":
-            translated += "P o ng"
-        elif letter == "M":
-            translated += "P o nG"
-        elif letter == "n":
-            translated += "Po n g"
-        elif letter == "N":
-            translated += "Po n G"
-        elif letter == "o":
-            translated += "P on g"
-        elif letter == "O":
-            translated += "P on G"
-        elif letter == "p":
-            translated += "P o n g"
-        elif letter == "P":
-            translated += "P o n G"
-        # q to x
-        elif letter == "q":
-            translated += "pOng"
-        elif letter == "Q":
-            translated += "pOnG"
-        elif letter == "r":
-            translated += "p Ong"
-        elif letter == "R":
-            translated += "p OnG"
-        elif letter == "s":
-            translated += "pO ng"
-        elif letter == "S":
-            translated += "pO nG"
-        elif letter == "t":
-            translated += "pOn g"
-        elif letter == "T":
-            translated += "pOn G"
-        elif letter == "u":
-            translated += "p O ng"
-        elif letter == "U":
-            translated += "p O nG"
-        elif letter == "v":
-            translated += "pO n g"
-        elif letter == "V":
-            translated += "pO n G"
-        elif letter == "w":
-            translated += "p On g"
-        elif letter == "W":
-            translated += "p On G"
-        elif letter == "x":
-            translated += "p O n g"
-        elif letter == "X":
-            translated += "p O n G"
-        # y and z
-        elif letter == "y":
-            translated += "poNg"
-        elif letter == "Y":
-            translated += "poNG"
-        elif letter == "z":
-            translated += "p oNg"
-        elif letter == "Z":
-            translated += "p oNG"
-        # any others not defined + word seperation
-        elif letter == " ":
-            translated += ")("
-        else:
-            translated += letter
-        translated += " "
-    translated += ")"
-    print(translated)
-
-# Credit to AJH for this subroutine and the next one
 def pong_to_eng_dict():
     return {
         "pong": "a",
@@ -151,9 +28,58 @@ def pong_to_eng_dict():
         "p oNg": "z",
     }
 
-# Credit to AJH for this 
-def fast_eng_to_pong(message):
-    """A fast but less accurate pong-to-english translator. Unreliable for all dialects of pong."""
+def eng_to_pong_dict():
+    return {
+        "a": "pong",
+        "b": "p ong",
+        "c": "po ng",
+        "d": "pon g",
+        "e": "p o ng",
+        "f": "po n g",
+        "g": "p on g",
+        "h": "p o n g",
+        "i": "Pong",
+        "k": "P ong",
+        "j": "Po ng",
+        "l": "Pon g",
+        "m": "P o ng",
+        "n": "Po n g",
+        "o": "P on g",
+        "p": "P o n g",
+        "q": "pOng",
+        "r": "p Ong",
+        "s": "pO ng",
+        "t": "pOn g",
+        "u": "p O ng",
+        "v": "pO n g",
+        "w": "p On g",
+        "x": "p O n g",
+        "y": "poNg",
+        "z": "p oNg",
+    }
+
+
+def eng_to_pong():
+    message = input("Please enter your text in English: ")
+    eng_dict = eng_to_pong_dict()
+    translation = "("
+    for letter in message:
+        if letter == " ":
+            translation += ")("
+        else:
+            try:
+                translation += eng_dict[letter]
+            except KeyError:
+                pong_translation = eng_dict[letter.lower()]
+                pong_translation = pong_translation[:-1] + pong_translation[-1].upper()
+                translation += pong_translation
+            translation += " "
+    translation += ")"
+    print(translation)
+
+# Credit to AJH for this
+def pong_to_eng():
+    message = input("Please enter your message in Pong: ")
     valid_characters = ["p", "o", "n", " ", "P", "O", "N"]                # g is not in here. this will make sense later
     pong_dict = pong_to_eng_dict()                      # dictionary for pong>eng translations
     translation = ""
@@ -186,7 +112,7 @@ def fast_eng_to_pong(message):
         elif character != "(":               # ( are not necessary when we know ) end a word
             translation += character
 
-        print(translation)
+    print(translation)
 
 
 def run():
