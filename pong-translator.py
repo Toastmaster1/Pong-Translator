@@ -129,119 +129,119 @@ def pong_to_eng():
     print("Enter 'end' to finish translating.")
     while end is not True:
         print("ENTER THE NEXT PONG: ")
-        letter = input()
-        if letter == "pong":
+        pong = input()
+        if pong == "pong":
             translated += "a"
-        elif letter == "ponG":
+        elif pong == "ponG":
             translated += "A"
-        elif letter == "p ong":
+        elif pong == "p ong":
             translated += "b"
-        elif letter == "p onG":
+        elif pong == "p onG":
             translated += "B"
-        elif letter == "po ng":
+        elif pong == "po ng":
             translated += "c"
-        elif letter == "po nG":
+        elif pong == "po nG":
             translated += "C"
-        elif letter == "pon g":
+        elif pong == "pon g":
             translated += "d"
-        elif letter == "pon G":
+        elif pong == "pon G":
             translated += "D"
-        elif letter == "p o ng":
+        elif pong == "p o ng":
             translated += "e"
-        elif letter == "p o nG":
+        elif pong == "p o nG":
             translated += "E"
-        elif letter == "po n g":
+        elif pong == "po n g":
             translated += "f"
-        elif letter == "F":
+        elif pong == "F":
             translated += "po n G"
-        elif letter == "p on g":
+        elif pong == "p on g":
             translated += "g"
-        elif letter == "p on G":
+        elif pong == "p on G":
             translated += "G"
-        elif letter == "p o n g":
+        elif pong == "p o n g":
             translated += "h"
-        elif letter == "p o n G":
+        elif pong == "p o n G":
             translated += "H"
         # i to p
-        elif letter == "Pong":
+        elif pong == "Pong":
             translated += "i"
-        elif letter == "PonG":
+        elif pong == "PonG":
             translated += "I"
-        elif letter == "P ong":
+        elif pong == "P ong":
             translated += "j"
-        elif letter == "P onG":
+        elif pong == "P onG":
             translated += "J"
-        elif letter == "Po ng":
+        elif pong == "Po ng":
             translated += "k"
-        elif letter == "Po nG":
+        elif pong == "Po nG":
             translated += "K"
-        elif letter == "Pon g":
+        elif pong == "Pon g":
             translated += "l"
-        elif letter == "Pon G":
+        elif pong == "Pon G":
             translated += "L"
-        elif letter == "P o ng":
+        elif pong == "P o ng":
             translated += "m"
-        elif letter == "P o nG":
+        elif pong == "P o nG":
             translated += "M"
-        elif letter == "Po n g":
+        elif pong == "Po n g":
             translated += "n"
-        elif letter == "Po n G":
+        elif pong == "Po n G":
             translated += "N"
-        elif letter == "P on g":
+        elif pong == "P on g":
             translated += "o"
-        elif letter == "P on G":
+        elif pong == "P on G":
             translated += "O"
-        elif letter == "P o n g":
+        elif pong == "P o n g":
             translated += "p"
-        elif letter == "P o n G":
+        elif pong == "P o n G":
             translated += "P"
         # q to x
-        elif letter == "pOng":
+        elif pong == "pOng":
             translated += "q"
-        elif letter == "pOnG":
+        elif pong == "pOnG":
             translated += "Q"
-        elif letter == "p Ong":
+        elif pong == "p Ong":
             translated += "r"
-        elif letter == "p OnG":
+        elif pong == "p OnG":
             translated += "R"
-        elif letter == "pO ng":
+        elif pong == "pO ng":
             translated += "s"
-        elif letter == "pO nG":
+        elif pong == "pO nG":
             translated += "S"
-        elif letter == "pOn g":
+        elif pong == "pOn g":
             translated += "t"
-        elif letter == "pOn G":
+        elif pong == "pOn G":
             translated += "T"
-        elif letter == "p O ng":
+        elif pong == "p O ng":
             translated += "u"
-        elif letter == "p O nG":
+        elif pong == "p O nG":
             translated += "U"
-        elif letter == "pO n g":
+        elif pong == "pO n g":
             translated += "v"
-        elif letter == "pO n G":
+        elif pong == "pO n G":
             translated += "V"
-        elif letter == "p On g":
+        elif pong == "p On g":
             translated += "w"
-        elif letter == "p On G":
+        elif pong == "p On G":
             translated += "W"
-        elif letter == "p O n g":
+        elif pong == "p O n g":
             translated += "x"
-        elif letter == "p O n G":
+        elif pong == "p O n G":
             translated += "X"
         # y and z
-        elif letter == "poNg":
+        elif pong == "poNg":
             translated += "y"
-        elif letter == "poNG":
+        elif pong == "poNG":
             translated += "Y"
-        elif letter == "p oNg":
+        elif pong == "p oNg":
             translated += "z"
-        elif letter == "p oNG":
+        elif pong == "p oNG":
             translated += "Z"
         # any others not defined
-        elif letter.lower() == "end":
+        elif pong.lower() == "end":
             end = True
         else:
-            translated += letter
+            translated += pong
 
     translated += " "
     print(translated)
@@ -251,8 +251,8 @@ def run():
     choice = input("Choose your target language, Pong or English: ")
     if choice.lower() == "pong":
         eng_to_pong()
-    elif choice.lower() == "english":
+    elif choice.lower() in ["english", "eng"]:
         pong_to_eng()
 
-while 2 ** 16 == 65536:
+while True:
     run()
