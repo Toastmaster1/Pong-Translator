@@ -70,9 +70,12 @@ def eng_to_pong():
             try:
                 translation += eng_dict[letter]
             except KeyError:
-                pong_translation = eng_dict[letter.lower()]
-                pong_translation = pong_translation[:-1] + pong_translation[-1].upper()
-                translation += pong_translation
+                try:
+                    pong_translation = eng_dict[letter.lower()]
+                    pong_translation = pong_translation[:-1] + pong_translation[-1].upper()
+                    translation += pong_translation
+                except KeyError:
+                    translation += letter
             translation += " "
     translation += ")"
     print(translation)
